@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 
-class Pet {
+class Pet extends Equatable{
   final String name;
   final String breed;
 
-  Pet(
+  const Pet(
     this.name,
     this.breed
   );
@@ -14,4 +16,7 @@ class Pet {
   factory Pet.fromJson(Map<String, dynamic> json) {
     return Pet(json['name'], json['breed']);
   }
+
+  @override
+  List<Object?> get props => [name, breed];
 }

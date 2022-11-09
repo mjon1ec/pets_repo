@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:very_good_cli/bloc/pets/pets_bloc.dart';
+import 'package:very_good_cli/repository/pets_repository.dart';
 import 'package:very_good_cli/view/pets.dart';
 
 import 'api/pets_api.dart';
@@ -31,7 +34,10 @@ class MyApp extends StatelessWidget {
           shadowColor: Colors.grey,
         ),
       ),
-      home: PetsScreen(),
+      home: RepositoryProvider(
+        create: (context) => PetsRepository(),
+        child: PetsScreen(),
+      ),
     );
   }
 }

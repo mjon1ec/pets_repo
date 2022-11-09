@@ -1,10 +1,29 @@
 part of 'pets_bloc.dart';
 
-abstract class PetsState extends Equatable {
-  const PetsState();
+@immutable
+abstract class PetsState extends Equatable {}
+
+class PetsDataLoading extends PetsState {
+  @override
+  List<Object?> get props => [];
 }
 
-class PetsInitial extends PetsState {
+class PetsDataLoaded extends PetsState {
+
+  final List<Pet> petsData;
+
+  PetsDataLoaded({required this.petsData});
+
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [petsData];
+}
+
+class PetsDataError extends PetsState {
+
+  final String error;
+
+  PetsDataError(this.error);
+
+  @override
+  List<Object?> get props => [error];
 }

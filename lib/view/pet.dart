@@ -9,7 +9,7 @@ class PetDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(2),
+        padding: const EdgeInsets.all(2),
         height: 140,
         child: Card(
           elevation: 5,
